@@ -49,7 +49,7 @@ class Directory extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-5 m-1">
-                        {this.renderSelectedCampsite(this.state.selectedCampsite)}
+                       
                     </div>
                 </div>
             </div>
