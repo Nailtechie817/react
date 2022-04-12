@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
-    RenderCampsite(campsite) {
+function RenderCampsite(campsite) {
         return (
             <div className="col-md-5 m-1">
               <Card>
@@ -18,7 +17,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
     }
        
  
-    RenderComments(comments) {
+function RenderComments(comments) {
         if (comments) {
             return (
             <div className="col-md-5 m-1">
@@ -38,13 +37,13 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
     return <div />;
   }
  
-  render() {
-    if (this.props.campsite) {
+  function CampsiteInfo(props) {
+    if (props.campsite) {
         return (
             <div className="container">
                 <div className="row">
-                    {this.renderCampsite(this.props.campsite)}
-                    {this.renderComments(this.props.campsite.comments)}
+                    <RenderCampsite campsite={props.campsite} />
+                    <RenderComments comments={props.campsite.comments} />
                 </div>
             </div>
         );
@@ -52,5 +51,4 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
     return <div />;
 }
 
- 
 export default CampsiteInfo;
