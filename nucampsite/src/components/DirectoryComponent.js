@@ -1,31 +1,31 @@
-import React from 'react';
- import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+import React, { Component } from 'react';
+import { Card, CardImg, CardTitle, CardImgOverlay } from 'reactstrap';
 
- function RenderDirectoryItems({ campsite, onClick }) {
-   return (
-     <Card onClick={() => onClick(campsite.id)}>
-       <CardImg width="100%" src={campsite.image} alt={campsite.name} />
-       <CardImgOverlay>
-         <CardTitle>{campsite.name}</CardTitle>
-       </CardImgOverlay>
-     </Card>
-   );
- }
+class Directory extends Component {
 
- function Directory(props) {
-   const directory = props.campsites.map(campsite => {
-     return (
-       <div key={campsite.id} className="col-md-5 m-1">
-         <RenderDirectoryItems campsite={campsite} onClick={props.onClick} />
-       </div>
-     );
-   });
+    render() {
+        const directory = this.props.campsites.map(campsite => {
+            return (
+                <div key={campsite.id} className="col-md-5 m-1">
+                    <Card onClick={() => this.props.onClick(campsite.id)}> 
+                        <CardImg width="100%" src={campsite.image} alt={campsite.name} />
+                        <CardImgOverlay>
+                            <CardTitle>{campsite.name}</CardTitle>
+                        </CardImgOverlay>
+                    </Card>
+                </div>
+            );
+        });
 
-   return (
-     <div className="container">
-       <div className="row">{directory}</div>
-     </div>
-   );
- }
+        return (
+            <div className="container">
+                <div className="row">
+                    {directory}
+                </div>
+                
+            </div>
+        );
+    }
+}
 
- export default Directory;
+export default Directory;
