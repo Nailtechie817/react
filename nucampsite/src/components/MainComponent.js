@@ -10,6 +10,7 @@ import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Contact from './ContactComponent';
+import About from './AboutComponent';
 
 class Main extends Component {
 
@@ -52,6 +53,7 @@ class Main extends Component {
                     <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
                     <Route exact path='/contactus' component={Contact} />
                     <Route path='/directory/:campsiteId' component={CampsiteWithId} />
+                    <Route exact path='/aboutus' render={() => <About partners={this.props.partners} />}/>
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />

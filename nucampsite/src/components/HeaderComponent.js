@@ -22,7 +22,7 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                <Jumbotron fluid>
+                <Navbar>
                     <div className="container">
                         <div className="row">
                             <div className="col">
@@ -31,7 +31,7 @@ class Header extends Component {
                             </div>
                         </div>
                     </div>
-                </Jumbotron>
+                </Navbar>
 
                 <Navbar dark sticky="top" expand="md">
                     <div className="container">
